@@ -1,0 +1,34 @@
+<div class="container mb-5">
+
+    <h3 class="mt-3 mb-1">Movie Listings @ GV Cinema</h3>
+    <button type="button" class="btn btn-light bg-grey" (click)="goBack()">Back</button>
+    <h3>{{movieItem.name}}</h3>
+    <p class="mtm-font-small mb-10" *ngIf="movieItem.mpaaRating">(
+        {{movieItem.mpaaRating.type}}: {{movieItem.mpaaRating.label}} )
+    </p>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-12">
+            <img class="img-fluid img-responsive" width="100%" [src]="movieItem.imgPath"
+                onerror="this.src='assets/images/mtm.jpg'" />
+        </div>
+        <div class="col-md-8 col-sm-8 col-12">
+            <h4 class="heading-description">Details</h4>
+            <div class="mtm-font-small">Genre:
+                <span *ngFor="let category of movieItem.genre; let i=index;">
+                    {{category}}<span *ngIf="movieItem.genre.length > 1 && i+1!=movieItem.genre.length">, </span>
+                </span>
+            </div>
+            <p class="mtm-font-small">Language: {{movieItem.language}}</p>
+            <p class="mtm-font-small">Duration: {{movieItem.duration}} minutes</p>
+            <p class="mtm-font-small">User Rating: {{movieItem.userRating}}</p>
+
+            <h4 class="heading-description">Synopsis</h4>
+            <p>{{movieItem.description}}</p>
+        </div>
+    </div>
+
+</div>
+<!-- Container Ends here -->

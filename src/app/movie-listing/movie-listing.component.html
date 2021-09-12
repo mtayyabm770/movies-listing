@@ -1,0 +1,41 @@
+<div class="container">
+
+    <h2 class="my-3">Movie Listings @ GV Cinema</h2>
+
+    <div class="form-group col-md-3 col-sm-6 col-12 p-0">
+        <input class="form-control marg-search" type="search" placeholder="Search Movies..." [(ngModel)]="search" />
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-md-12 col-12">
+            <h3>Popular Movies this month</h3>
+        </div>
+    </div>
+
+    <div class="row mb-5" *ngIf="moviesList">
+        <div class="col-md-3 col-sm-6 col-12" *ngFor="let movie of (moviesList | filter:search); let i=index;"
+            (click)="getMovieDetail(movie)">
+            <div class="card border-0 mr-3 mtm-cursor-pointer">
+                <img class="card-img-top" height="300" [src]="movie.imgPath"
+                    onerror="this.src='assets/images/mtm.jpg'" />
+                <!-- <hr /> -->
+                <div class="card-body py-1 px-0">
+                    <h4 class="card-title mb-1">{{movie.name}}</h4>
+                    <p class="mb-2">{{movie.duration}} min</p>
+                    <p class="mb-2">User Rating: {{movie.userRating}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- No Record Found -->
+    <div class="row m-5" *ngIf="!moviesList">
+        <div class="col text-center">
+            <h5 class="text-danger">No Movie Found</h5>
+        </div>
+    </div>
+
+</div>
+<!-- Container ends here -->

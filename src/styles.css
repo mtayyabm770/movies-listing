@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+
+.mtm-cursor-pointer {
+    cursor: pointer;
+}
+
+.mtm-font-small {
+    font-size: small;
+}
